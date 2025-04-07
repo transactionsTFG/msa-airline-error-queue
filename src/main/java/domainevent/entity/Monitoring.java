@@ -44,4 +44,9 @@ public class Monitoring {
     @Column(nullable = false, name = "event_data")
     @Convert(converter = JsonConverter.class)
     private Object data;
+
+    @PrePersist
+    private void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

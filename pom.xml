@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ucm.tfg</groupId>
-  <artifactId>msa-orchestator</artifactId>
+  <artifactId>msa-airline-monitoring-error-queue</artifactId>
   <version>1.0.0</version>
   <packaging>war</packaging>
-  <name>msa-agency-monitoring-error-queue</name>
+  <name>msa-airline-monitoring-error-queue</name>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
@@ -65,7 +65,7 @@
    </dependency>
   </dependencies>
   <build>
-    <finalName>msa-agency-monitoring-error-queue</finalName>
+    <finalName>msa-airline-monitoring-error-queue</finalName>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
