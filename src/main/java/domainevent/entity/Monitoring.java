@@ -46,7 +46,7 @@ public class Monitoring {
     private Object data;
 
     @PrePersist
-    private void prePersist() {
+    protected void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
 }
