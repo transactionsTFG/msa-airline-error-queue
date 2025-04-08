@@ -43,7 +43,7 @@ public class Monitoring {
     @Column(nullable = false, name = "event_id")
     private EventId eventId;
 
-    @Column(nullable = false, name = "event_data")
+    @Column(nullable = false, name = "event_data", columnDefinition = "TEXT")
     @Convert(converter = JsonConverter.class)
     private Object data;
 
