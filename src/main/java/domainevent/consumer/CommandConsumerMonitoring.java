@@ -18,10 +18,10 @@ import org.apache.logging.log4j.Logger;
 
 
 @MessageDriven(mappedName = JMSQueueNames.AIRLINE_MONITORING_ERROR_QUEUE)
-public class DomainEventConsumerMonitoring implements MessageListener {
+public class CommandConsumerMonitoring implements MessageListener {
     private Gson gson;
     private MonitoringServices monitoringServices;
-    private static final Logger LOGGER = LogManager.getLogger(DomainEventConsumerMonitoring.class);
+    private static final Logger LOGGER = LogManager.getLogger(CommandConsumerMonitoring.class);
 
     @Override
     public void onMessage(Message msg) {
@@ -29,8 +29,8 @@ public class DomainEventConsumerMonitoring implements MessageListener {
             if(msg instanceof TextMessage m) {
                 String origin = m.getStringProperty(PropertiesConsumer.ORIGIN_QUEUE);
                 Event event = this.gson.fromJson(m.getText(), Event.class);
-                LOGGER.warn("Monitoreando en Cola {}, Evento Id: {}, Mensaje: {}", JMSQueueNames.AIRLINE_MONITORING_ERROR_QUEUE, event.getEventId(), event.getData());
-                this.monitoringServices.saveError(origin, event.getEventId(), event.getData());
+                LOGGER.warn("Monitoreando en Cola {}, Evento Id: {}, Mensaje: {}", JMSQueueNames.AIRLINE_MONITORING_ERROR_QUEUE, event.getEventId(), event.getValue());
+                this.monitoringServices.saveError(origin, event.getEventId(), event.getValue());
             }
         } catch (Exception e) {
             LOGGER.error("Error al recibir el mensaje: {}", e.getMessage());
