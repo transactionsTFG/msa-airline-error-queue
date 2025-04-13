@@ -46,4 +46,6 @@ public class CommandConsumerMonitoring implements MessageListener {
     public void setGson(Gson gson) { this.gson = gson; }
     @Inject
     public void setMonitoringServices(MonitoringServices monitoringServices) { this.monitoringServices = monitoringServices; }
+    @Inject
+    public void setJmsCommandPublisher(IJMSCommandPublisher jmsCommandPublisher) { this.jmsCommandPublisher = jmsCommandPublisher; }
 }
